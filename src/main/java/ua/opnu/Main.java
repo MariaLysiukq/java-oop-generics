@@ -13,6 +13,7 @@ public class Main {
         task3();
         task4();
         task5();
+        task6();
     }
 
     private static void task1() {
@@ -86,5 +87,32 @@ public class Main {
         Integer[] numbers = {10, 20, 30};
         System.out.println("numbers contains 20: " + Contains.contains(numbers, 20));
         System.out.println("numbers contains 25: " + Contains.contains(numbers, 25));
+    }
+
+    private static void task6() {
+        System.out.println("Task 6: Tuples");
+        GenericTwoTuple<String, Integer> student = getStudentWithRating("Іванов Петро Петрович");
+        System.out.println("Студент: " + student.first + ", рейтинг: " + student.second);
+        System.out.println(student);
+        GenericThreeTuple<Integer, Integer, Double> stats = getMinMaxAverage(new int[]{4, 9, 1, 7, 5});
+        System.out.println("min: " + stats.two.first + ", max: " + stats.two.second + ", avg: " + stats.three);
+        System.out.println(stats);
+    }
+
+    private static GenericTwoTuple<String, Integer> getStudentWithRating(String fullName) {
+        int rating = fullName.length() * 3;
+        return new GenericTwoTuple<>(fullName, rating);
+    }
+
+    private static GenericThreeTuple<Integer, Integer, Double> getMinMaxAverage(int[] values) {
+        int min = values[0];
+        int max = values[0];
+        int sum = 0;
+        for (int value : values) {
+            min = Math.min(min, value);
+            max = Math.max(max, value);
+            sum += value;
+        }
+        return new GenericThreeTuple<>(min, max, (double) sum / values.length);
     }
 }
