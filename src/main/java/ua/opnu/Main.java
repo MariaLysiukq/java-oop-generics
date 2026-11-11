@@ -1,24 +1,18 @@
 package ua.opnu;
 
-/**
- * Entry point demonstrating Laboratory Work 8 tasks.
- */
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
 
-    /**
-     * Runs demonstrations of all tasks.
-     *
-     * @param args command-line arguments (unused)
-     */
     public static void main(String[] args) {
         task1();
+        task2();
     }
 
-    /**
-     * Task 1: demonstrates {@link MyOptional}.
-     */
     private static void task1() {
-        System.out.println("=== Task 1: MyOptional ===");
+        System.out.println("Task 1: MyOptional");
         MyOptional<String> middleName = new MyOptional<>();
         System.out.println(middleName);
         System.out.println("isPresent: " + middleName.isPresent());
@@ -40,5 +34,22 @@ public class Main {
         } catch (IllegalArgumentException ex) {
             System.out.println("Правильно не дозволив null: " + ex.getMessage());
         }
+    }
+
+    private static void task2() {
+        System.out.println("Task 2: BookData");
+        List<BookData> books = new ArrayList<>(List.of(
+                new BookData("Kobzar", "Taras Shevchenko", 10, 45.0),
+                new BookData("Dune", "Frank Herbert", 4, 18.0),
+                new BookData("Clean Code", "Robert Martin", 2, 10.0),
+                new BookData("Algorithms", "Robert Sedgwick", 5, 22.5),
+                new BookData("New Book", "Unknown", 0, 0.0)));
+        Collections.sort(books);
+        for (BookData book : books) {
+            System.out.println(book);
+        }
+        BookData a = new BookData("A", "X", 1, 5.0);
+        BookData b = new BookData("B", "Y", 2, 10.0);
+        System.out.println("A vs B (equal rating, by title): " + a.compareTo(b));
     }
 }
