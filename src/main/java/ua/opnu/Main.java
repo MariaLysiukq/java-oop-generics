@@ -1,6 +1,7 @@
 package ua.opnu;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class Main {
         task1();
         task2();
         task3();
+        task4();
     }
 
     private static void task1() {
@@ -61,5 +63,17 @@ public class Main {
         String[] stringArray = {"Hello", "World"};
         myPrinter.printArray(intArray);
         myPrinter.printArray(stringArray);
+    }
+
+    private static void task4() {
+        System.out.println("Task 4: Filter");
+        Integer[] numbers = {1, 2, 3, 4, 5, 6, 7, 8};
+        Integer[] even = Filter.filter(numbers, n -> n % 2 == 0);
+        System.out.println("Even: " + Arrays.toString(even));
+        String[] words = {"apple", "kiwi", "banana", "fig", "cherry"};
+        String[] longWords = Filter.filter(words, w -> w.length() > 4);
+        System.out.println("Longer than 4: " + Arrays.toString(longWords));
+        String[] none = Filter.filter(words, w -> w.isEmpty());
+        System.out.println("Empty words: " + Arrays.toString(none));
     }
 }
