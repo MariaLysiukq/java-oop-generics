@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
         task1();
         task2();
+        task3();
     }
 
     private static void task1() {
@@ -51,5 +52,14 @@ public class Main {
         BookData a = new BookData("A", "X", 1, 5.0);
         BookData b = new BookData("B", "Y", 2, 10.0);
         System.out.println("A vs B (equal rating, by title): " + a.compareTo(b));
+    }
+
+    private static void task3() {
+        System.out.println("Task 3: Printer");
+        Printer myPrinter = new Printer();
+        Integer[] intArray = {1, 2, 3};
+        String[] stringArray = {"Hello", "World"};
+        myPrinter.printArray(intArray);
+        myPrinter.printArray(stringArray);
     }
 }
