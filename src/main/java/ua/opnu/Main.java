@@ -12,6 +12,7 @@ public class Main {
         task2();
         task3();
         task4();
+        task5();
     }
 
     private static void task1() {
@@ -75,5 +76,15 @@ public class Main {
         System.out.println("Longer than 4: " + Arrays.toString(longWords));
         String[] none = Filter.filter(words, w -> w.isEmpty());
         System.out.println("Empty words: " + Arrays.toString(none));
+    }
+
+    private static void task5() {
+        System.out.println("Task 5: Contains");
+        String[] names = {"Anna", "Bohdan", "Maria"};
+        System.out.println("names contains Maria: " + Contains.contains(names, "Maria"));
+        System.out.println("names contains Olena: " + Contains.contains(names, "Olena"));
+        Integer[] numbers = {10, 20, 30};
+        System.out.println("numbers contains 20: " + Contains.contains(numbers, 20));
+        System.out.println("numbers contains 25: " + Contains.contains(numbers, 25));
     }
 }
